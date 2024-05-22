@@ -13,6 +13,17 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     templateUrl: 'src/templates/home.template.html'
   })
 
+  .state("categories", {
+    url: '/categories',
+    templateUrl: 'src/templates/all-categories.template.html',
+    controller: 'AllCategoriesController as allCategories',
+    resolve: {
+        categories: ['MenuDataService', function (MenuDataService) {
+            return MenuDataService.getAllCategories();
+        }]
+    }
+  });
+
   $urlRouterProvider.otherwise('/');
 
 }
