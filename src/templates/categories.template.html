@@ -1,5 +1,3 @@
-<div class="categoryList">
-  <ul>
-    <li ng-repeat="cat in $ctrl.categories" ui-sref="categories.menuItems({category: cat.short_name})">{{cat.name}}</li>
-  </ul>
+<div class="category-list">
+    <button type="button" ui-sref="categories.menuItems({category: cat.short_name})" ng-repeat="cat in $ctrl.categories" class="btn btn-dark btn-sm category" >{{cat.name}}</button>
 </div>

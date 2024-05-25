@@ -1,6 +1,18 @@
-<a ui-sref="home">Home</a> &gt; <span>Categories</span> <br> <br>
-<div class="categories">
-  <h4>Choose from the following categories!</h4>
-  <categories categories="allCategoriesCtrl.categories"></categories> <br>
-  <ui-view></ui-view>
+<div class="all-categories">
+  <div class="navbar">
+    <ul class="pagination">
+      <li class="page-item">
+        <a ui-sref="home" class="page-link link-danger link-offset-3 link-underline-opacity-25 link-underline-opacity-50-hover">Home</a>
+      </li>
+      <li class="page-item">
+        <a ui-sref="categories" class="page-link link-danger link-offset-3 link-underline-opacity-25 link-underline-opacity-50-hover">Categories</a>
+      </li>
+    </ul>
+  </div>
+  <div class="categories">
+    <h4 class="english-header">Choose from the following categories!</h4>
+    <h5 class="chinese-header">从以下类别中选择！</h5>
+    <categories categories="allCategoriesCtrl.categories"></categories> <br>
+    <ui-view></ui-view>
+  </div>
 </div>

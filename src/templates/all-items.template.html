@@ -1,5 +1,12 @@
 <div class="items" ng-if="itemsCtrl.items.length > 0">
-  <h5>Choose your dish!</h5>
-  <items items="itemsCtrl.items" has-two-sizes="itemsCtrl.hasTwoSizes(index)"></items>
-  <a ui-sref="categories">Back</a>
+  <div class="menu-items-header">
+    <h4 class="english-header">Choose your dish!</h4>
+    <h5 class="chinese-header">选择你的菜！</h5>
+    <button type="button" class="btn btn-outline-danger btn-md back" ui-sref="categories">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 2 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+      </svg>
+      Back</button>
+  </div>
+  <items items="itemsCtrl.items" has-two-sizes="itemsCtrl.hasTwoSizes(index)" capitalize="itemCtrl.capitalize()"></items>
 </div>

@@ -1,14 +1,20 @@
-  <div class="itemsList">
+  <div class="list-group items-list">
     <ul>
-      <li ng-repeat="item in $ctrl.items">
+      <li class="list-group-item d-flex justify-content-between align-items-center" ng-repeat="item in $ctrl.items">
         <div class="title">{{item.name}}</div>
-        <div class="description" ng-if="item.description">{{item.description}} </div>
+        <div class="description" ng-if="item.description">{{item.description | capitalize }}</div>
         <div class="price" ng-if="$ctrl.hasTwoSizes({index: $index})">
-          <div class="label">{{item.large_portion_name}}: <span class="price">${{item.price_large}}</span></div>
-          <div>{{item.small_portion_name}}: <span class="price">${{item.price_small}}</span></div>
+          <div class="label">
+            <span class="portion-name">{{item.large_portion_name | capitalize }}</span>
+            <span class="badge text-bg-secondary rounded-pill price">${{item.price_large}}</span>
+          </div>
+          <div class="label">
+            <span class="portion-name">{{item.small_portion_name | capitalize }}</span>
+            <span class="badge text-bg-secondary rounded-pill price">${{item.price_small}}</span>
+          </div>
         </div>
-        <div class="label" ng-if="!($ctrl.hasTwoSizes({index: $index}))">
-          Price: <span class="price">${{item.price_large}}</span>
+        <div class="price label" ng-if="!($ctrl.hasTwoSizes({index: $index}))">
+          <span class="badge text-bg-secondary rounded-pill price" >${{item.price_large}}</span>
         </div>
       </li>
     </ul>

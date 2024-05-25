@@ -6,7 +6,8 @@ angular.module('MenuApp')
     templateUrl: 'src/templates/items.template.html',
     bindings: {
         items: '<',
-        hasTwoSizes: '&'
+        hasTwoSizes: '&',
+        capitalize: '&'
     }
 });
 
