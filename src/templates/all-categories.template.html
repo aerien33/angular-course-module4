@@ -1,18 +1,21 @@
 <div class="all-categories">
   <div class="navbar">
-    <ul class="pagination">
+    <ul class="pagination justify-content-center">
       <li class="page-item">
         <a ui-sref="home" class="page-link link-danger link-offset-3 link-underline-opacity-25 link-underline-opacity-50-hover">Home</a>
       </li>
       <li class="page-item">
-        <a ui-sref="categories" class="page-link link-danger link-offset-3 link-underline-opacity-25 link-underline-opacity-50-hover">Categories</a>
+        <a ui-sref="categories" ng-click="allCategoriesCtrl.setCurrent(null);" class="page-link link-danger link-offset-3 link-underline-opacity-25 link-underline-opacity-50-hover">Categories</a>
+      </li>
+      <li class="page-item" ng-if="allCategoriesCtrl.current !== null">
+        <a ui-sref="categories.menuItems({category: allCategoriesCtrl.current.short_name})" class="page-link link-danger link-offset-3 link-underline-opacity-25 link-underline-opacity-50-hover">{{allCategoriesCtrl.current.name}}</a>
       </li>
     </ul>
   </div>
   <div class="categories">
     <h4 class="english-header">Choose from the following categories!</h4>
     <h5 class="chinese-header">从以下类别中选择！</h5>
-    <categories categories="allCategoriesCtrl.categories"></categories> <br>
+    <categories categories="allCategoriesCtrl.categories" set-current="allCategoriesCtrl.setCurrent(category)"></categories> <br>
     <ui-view></ui-view>
   </div>
 </div>

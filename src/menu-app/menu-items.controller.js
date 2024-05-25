@@ -4,8 +4,8 @@
 angular.module('MenuApp')
 .controller('MenuItemsController', MenuItemsController);
 
-MenuItemsController.$inject = ['$stateParams', 'MenuDataService'];
-function MenuItemsController($stateParams, MenuDataService) {
+MenuItemsController.$inject = ['$stateParams', '$rootScope', 'MenuDataService'];
+function MenuItemsController($stateParams, $rootScope, MenuDataService) {
     var $ctrl = this;
     var category = $stateParams.category;
     $ctrl.items = [];
@@ -29,6 +29,10 @@ function MenuItemsController($stateParams, MenuDataService) {
         } else {
                 return false;
         }
+    }
+
+    $ctrl.back = function () {
+        $rootScope.$broadcast('itemsCtrl:back', null);
     }
 
 }
